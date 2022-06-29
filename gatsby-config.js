@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -35,10 +38,10 @@ module.exports = {
       resolve: `gatsby-source-mysql`,
       options: {
         connectionDetails: {
-          host: 'legacyrecorder.org',
-          user: 'legacder_dev',
-          password: '55841921',
-          database: 'legacder_gerardotest'
+          host: process.env.MYSQL_SERVER,
+          user: process.env.MYSQL_USER,
+          password: process.env.MYSQL_PASSWORD,
+          database: process.env.MYSQL_DB
         },
         queries: [
           {
